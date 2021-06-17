@@ -3,7 +3,7 @@
 ### Obtiene personajes, los muestra y los guarda en una base de datos
 
 ## Consigna 17/6
-### Al sistema del universo SW, agregarle endpoints para lo siguiente:
+Al sistema del universo SW, agregarle endpoints para lo siguiente:
 
 1) Buscar a un personaje por nombre.
    Primero buscar en la base de datos local.
