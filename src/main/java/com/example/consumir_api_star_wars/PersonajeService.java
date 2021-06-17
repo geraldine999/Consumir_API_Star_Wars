@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,5 +24,17 @@ public class PersonajeService {
 
     public Optional <Personaje> findById(Integer id) {
         return personajeRepository.findById(id);
+    }
+
+    public Optional<Personaje> getPersonajeByName(String nombre) {
+        return personajeRepository.getByName(nombre);
+    }
+
+    public Personaje save(Personaje personaje) {
+        return personajeRepository.save(personaje);
+    }
+
+    public List<Personaje> getPersonajes() {
+        return personajeRepository.findAll();
     }
 }
