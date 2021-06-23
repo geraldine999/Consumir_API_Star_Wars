@@ -49,20 +49,26 @@ public class StarWarsController {
 
     }
 
+    //TODO probar este metodo
     @GetMapping(value = "personaje/nombre/{nombre}")
-    public String getPersonajePorNombre(@PathVariable String nombre) {
+    public Optional <Personaje> getPersonajePorNombre(@PathVariable String nombre) {
+        //primero fijarse si existe el personaje en la base de datos
         Optional<Personaje> personaje = personajeService.getPersonajeByName(nombre);
+        //si no esta, lo buscas en la api
         if (personaje.isEmpty()) {
             personaje = getPersonajePorNombreDeLaApi(nombre);
+            //si no esta en la api...
             if(personaje.isEmpty()){
-                return "No se encontro un personaje con ese nombre";
+               //TODO informar que no se encontro
+                //si se encontro en la api, se guarda en la base de datos
             }else{
-                return personaje.toString();
+               personaje = personajeService.save(personaje);
             }
-        } else {
-            return personaje.toString();
+            //devolver el personaje
         }
+        return personaje;
     }
+
 
     @GetMapping(value = "personaje/{nombre}")
     public Optional<Personaje> getPersonajePorNombreDeLaApi(@PathVariable String nombre) {

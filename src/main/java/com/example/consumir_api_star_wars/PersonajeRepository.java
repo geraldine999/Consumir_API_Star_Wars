@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface PersonajeRepository extends JpaRepository<Personaje, Integer> {
 
     Optional<Personaje> getByName(String nombre);
+
+    Optional<Personaje> save(Optional<Personaje> personaje);
 }

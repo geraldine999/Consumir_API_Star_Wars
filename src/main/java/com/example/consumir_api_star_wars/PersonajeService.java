@@ -1,7 +1,6 @@
 package com.example.consumir_api_star_wars;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +29,7 @@ public class PersonajeService {
         return personajeRepository.getByName(nombre);
     }
 
-    public Personaje save(Personaje personaje) {
+    public Optional<Personaje> save(Optional<Personaje> personaje) {
         return personajeRepository.save(personaje);
     }
 
